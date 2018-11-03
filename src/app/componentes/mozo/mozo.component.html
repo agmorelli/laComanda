@@ -1,0 +1,51 @@
+<div class=" container">
+  <div class="row">
+<div class="tabla-prod col-sm-4">
+  <form class="form-group" action="">
+    <input class="form-control" placeholder="mesa" type="text" name="mesa" [(ngModel)]="mesa">
+  </form>
+  <table class="table">
+      <thead>
+        <th>Producto</th> <th>Precio</th> <th>Accion</th>
+      </thead>
+      <tbody *ngIf="listaProductos">
+        <tr *ngFor="let producto of listaProductos">
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td><app-boton-agregar [producto]="producto" (enviar)="AgregarAlPedido($event)"></app-boton-agregar></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+  <div class="tabla-prod col-sm-4">
+      <h2>Pedido</h2>
+    <table class="table">
+      
+      <thead>
+        <th>Producto</th> <th>Precio</th> <th>Accion</th>
+      </thead>
+      <tbody *ngIf="productosPedido">
+        <tr *ngFor="let producto of productosPedido">
+          
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td> <app-boton-borrar [producto]="producto" (enviarABorrar)="QuitarAlPedido($event)" ></app-boton-borrar> </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td>Total</td> <td>{{totalPedido}} </td>
+      </tfoot>
+    </table>
+  </div>
+  <div class="btn-ingresar ">
+  <button class="btn btn-success">Ingresar pedido</button>
+</div>
+</div>
+  
+
+</div>

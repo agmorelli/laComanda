@@ -1,0 +1,65 @@
+body{
+    background-image: url("../../../assets/imagenes/bar-1869656_1280.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+background-size: cover;
+    
+}
+
+h1{
+    font-family: 'Lobster';
+    color: white;
+    font-style: oblique;
+}
+
+.cont-registro{
+    background-color: rgba(36, 34, 34, 0.767);
+    height:800px;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 20%;
+    
+}
+.form-control{
+    background-color: rgba(4, 4, 29, 0.637);
+    color: beige;
+}
+
+.lbl-sexo{
+    color: beige;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    background-color: rgba(4, 4, 29, 0.637);
+    color: beige;
+    box-sizing: border-box;
+}
+fieldset{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442;
+    background-color: rgba(4, 4, 29, 0.637);
+    color: beige;
+}
+
+.ng-valid:not(form)  {
+    border-left: 5px solid #4CAF50;
+    background-color: rgba(4, 4, 29, 0.637);
+    color: beige;
+}

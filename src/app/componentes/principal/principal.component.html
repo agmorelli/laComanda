@@ -1,0 +1,34 @@
+
+<body>
+    
+
+
+<p>Bienvenido {{usuario}}</p>
+
+<button class="btn btn-danger" (click)="Salir()">Salir</button>
+
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">La Comanda</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <button class="btn btn-dark" routerLink="/mozo" routerLinkActive="active" >Mozo</button>
+          
+        </li>
+        <li class="nav-item">
+            <button class="btn btn-dark" routerLink="/cocina" routerLinkActive="active" >Cocina</button>
+        </li>
+        <li class="nav-item">
+            <button class="btn btn-dark" routerLink="/admin" routerLinkActive="active" >Administrador</button>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+<router-outlet></router-outlet>
+
+</body>
