@@ -43,10 +43,16 @@ export class RegistroComponent implements OnInit {
 
 
 
+
+
+
+
   registroForm: FormGroup = this.builder.group({
     email: this.email,
     clave: this.clave,
     copiaClave: this.copiaClave,
+    sexo: this.sexo,
+   
 
   });
 

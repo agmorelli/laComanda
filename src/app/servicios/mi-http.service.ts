@@ -7,8 +7,8 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MiHttpService {
-  //api:string="http://localhost:8080/TP_PROG3_1C_2018/backend/";
-  api:string= "https://amorelli.000webhostapp.com/laComanda/backend/";
+  api:string="http://localhost:8080/TP_PROG3_1C_2018/backend/";
+ // api:string= "https://amorelli.000webhostapp.com/laComanda/backend/";
 
   constructor(private http:Http) { }
 
