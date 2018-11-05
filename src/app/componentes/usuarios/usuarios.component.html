@@ -1,0 +1,47 @@
+
+<div class="row">
+<div class="form-ingreso col-sm-3">
+    <h3>Nuevo empleado</h3>
+  <form action="">
+    <div class="form-group">
+      <input type="text" class="form-control input-ingreso" name="usuario" placeholder="Usuario" [(ngModel)]="usuario" ><br>
+      <input type="text" class="form-control input-ingreso" name="clave" placeholder="Clave" [(ngModel)]="clave" ><br>
+      <input type="text" class="form-control input-ingreso" name="perfil" placeholder="Perfil" [(ngModel)]="perfil" ><br>
+      <div class="form-group">
+        <legend>Sexo</legend>
+          <input type="radio" name="sexo" id="sexoH" value="Hombre" [(ngModel)]="sexo"><label for="sexoH">Hombre</label><br>
+          <input type="radio" name="seco" id="sexoM" value="Mujer" [(ngModel)]="sexo"><label for="sexoM">Mujer</label>
+      </div>
+
+      <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12">Ingresar</button>
+    </div>
+
+  </form>
+
+
+</div>
+
+
+
+
+<div class="tabla-negra col-sm-5">
+    <h3>Lista de empleados</h3>
+  <table class="table col-sm-12">
+    
+      <thead>
+        <th>Usuario</th> <th>Perfil</th> <th>Estado</th> <th>Accion</th>
+      </thead>
+      <tbody *ngIf="listaUsuarios">
+        <tr *ngFor="let usuario of listaUsuarios">
+            <td>{{usuario.usuario}}</td>
+            <td>{{usuario.perfil}}</td>
+            <td>{{usuario.estado}}</td>
+            <td><boton-suspender [id]="usuario.id"></boton-suspender></td>
+            <td> <app-boton-borrar [objeto]="usuario" (enviarABorrar)="QuitarUsuario($event)" ></app-boton-borrar> </td>
+            
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -14,14 +14,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li *ngIf="perfil=='mozo' || perfil== 'admin'" class="nav-item active">
           <button class="btn btn-dark" routerLink="/mozo" routerLinkActive="active" >Mozo</button>
           
         </li>
-        <li class="nav-item">
+        <li *ngIf="perfil=='cocina' || perfil== 'admin'" class="nav-item">
             <button class="btn btn-dark" routerLink="/cocina" routerLinkActive="active" >Cocina</button>
         </li>
-        <li class="nav-item">
+        <li *ngIf="perfil== 'admin'" class="nav-item">
             <button class="btn btn-dark" routerLink="/admin" routerLinkActive="active" >Administrador</button>
         </li>
       </ul>

@@ -22,6 +22,8 @@ import { RoleGuardService } from './servicios/auth/role-guard-service.service';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { BotonBorrarComponent } from './componentes/boton-borrar/boton-borrar.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { BotonSuspenderComponent } from './componentes/boton-suspender/boton-suspender.component';
 
 
 
@@ -42,7 +44,9 @@ export function tokenGetter() {
     CocinaComponent,
     AdminComponent,
     RegistroComponent,
-    BotonBorrarComponent
+    BotonBorrarComponent,
+    UsuariosComponent,
+    BotonSuspenderComponent
   ],
   imports: [
     BrowserModule,

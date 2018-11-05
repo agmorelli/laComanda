@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from '../../clases/producto';
+import { Usuario } from '../../clases/usuario';
 
 @Component({
   selector: 'app-boton-borrar',
@@ -8,15 +9,16 @@ import { Producto } from '../../clases/producto';
 })
 export class BotonBorrarComponent implements OnInit {
 
-  @Input() producto:Producto;
+  @Input() objeto:any;
+
   @Output() enviarABorrar = new EventEmitter();
 
   constructor() { }
 
   Borrar()
   {
-    console.log("se Borro el producto: " + this.producto.nombre);
-    this.enviarABorrar.emit(this.producto);
+    console.log("se Borro: " + this.objeto.nombre);
+    this.enviarABorrar.emit(this.objeto);
     
   }
 

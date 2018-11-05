@@ -34,7 +34,7 @@
           
             <td>{{producto.nombre}}</td>
             <td>{{producto.precio}}</td>
-            <td> <app-boton-borrar [producto]="producto" (enviarABorrar)="QuitarAlPedido($event)" ></app-boton-borrar> </td>
+            <td> <app-boton-borrar [objeto]="producto" (enviarABorrar)="QuitarAlPedido($event)" ></app-boton-borrar> </td>
         </tr>
       </tbody>
       <tfoot>

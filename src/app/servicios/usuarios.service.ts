@@ -6,11 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosService {
-
+token=localStorage.getItem("token");
   constructor(private miHttp: MiHttpService) { }
-
-  TraerHelados():Observable<any>{
-    return this.miHttp.httpGet("TraerTodos","").pipe(data=>{return data});
+/*
+  TraerUsuarios(){
+    let datos={
+      "token":this.token
+    }
+    return this.miHttp.httpPost("Usuarios/ListaUsuarios",datos)
+    .then((data)=>{return data})
+    .catch((data)=>{return data})
+    
+  }
+*/
+  TraerUsuarios():Observable<any>{
+    return this.miHttp.httpGet("Usuarios/ListaUsuarios").pipe(data=>{return data});
     
   }
 
@@ -21,8 +31,8 @@ export class UsuariosService {
 
  }
 
- public TraerUnHelado(sabor){
-   return this.miHttp.httpGet("TraerUno/"+sabor).pipe(data=>{return data});
+ public TraerUnUsuario(id){
+   return this.miHttp.httpGet("TraerUno/"+id).pipe(data=>{return data});
  }
 
  public Borrar(id)
@@ -34,7 +44,7 @@ export class UsuariosService {
  }
 
  public Login(usuario, clave)
- { 
+{ 
    let datos = {
      "usuario": usuario,
      "clave":clave
@@ -43,6 +53,52 @@ export class UsuariosService {
    .then((data)=>{return data})
    .catch((data)=>{return data})
 
- }
+}
+
+public CerrarSesion()
+{ 
+   let datos = {
+     "token": localStorage.getItem('token')
+   }
+   return this.miHttp.httpPost("Sesion/Salir",datos)
+   .then((data)=>{return data})
+   .catch((data)=>{return data})
+
+}
+
+public CargarUsuario(usuario, clave, sexo, perfil?)
+{ 
+
+    let datos;
+    let token= localStorage.getItem('token');
+  if(perfil)
+  {
+    datos = {
+      "usuario": usuario,
+      "clave":clave,
+      "sexo": sexo,
+      "perfil":perfil,
+      "token": token
+    }
+
+  }
+  else
+  {
+    datos = {
+      "usuario": usuario,
+      "clave":clave,
+      "sexo": sexo,
+      "perfil": "Cliente",
+      "token": token
+    }
+  }
+  console.log(datos);
+
+
+  return this.miHttp.httpPost("Usuarios/Carga",datos)
+  .then((data)=>{return data})
+  .catch((data)=>{return data})
+
+}
 
 }

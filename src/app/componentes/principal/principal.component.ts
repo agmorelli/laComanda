@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthGuardService } from '../../servicios/auth/auth-guard.service';
 import { AuthService } from '../../servicios/auth/auth.service';
+import { UsuariosService } from '../../servicios/usuarios.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class PrincipalComponent implements OnInit {
   usuario:string = this.info.usuario;
   perfil:string= this.info.perfil;
 
-  constructor(private router: Router, private auth: AuthService) {
+  constructor(private router: Router, private auth: AuthService, private httpUsuario: UsuariosService) {
     console.log(this.info.perfil);
 
 
@@ -47,8 +48,14 @@ export class PrincipalComponent implements OnInit {
 
    Salir()
    {
-     localStorage.removeItem("token");
-     this.router.navigate(['login']);
+     this.httpUsuario.CerrarSesion().then((data)=>{
+       console.log(data);
+       localStorage.removeItem("token");
+       this.router.navigate(['login']);
+     }).catch((data)=>{
+       console.log(data);
+     })
+
    }
 
 

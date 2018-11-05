@@ -1,10 +1,13 @@
+
+<head><script src='https://www.google.com/recaptcha/api.js'></script></head>
 <body>
   
 <div class="cont-registro container">
 
 <h1>Registro de usuario</h1>
 
-<form [formGroup]="registroForm" (ngSubmit)="Registrarse()">
+<!--<form [formGroup]="registroForm" (ngSubmit)="Registrarse()">-->
+    <form [formGroup]="registroForm" >
   <div class="form-group">
   
 <input class="form-control" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
@@ -26,12 +29,13 @@ pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  >
 <input  value="Mujer"  type="radio" id="sexom"   name="sexo"  [formControl]="sexo" required > <label class="lbl-sexo" for="Sexom">Mujer</label>
 
 </div>
+<div><div class="g-recaptcha" data-sitekey="6Lfzd3gUAAAAADY5QgRosNzEZmOzBXpqynwKISd9" required></div></div>
 
-<div class="g-recaptcha" data-sitekey="6Lfzd3gUAAAAADY5QgRosNzEZmOzBXpqynwKISd9" required></div>
- 
-  <button type="submit" class="btn btn-primary" [disabled]="!registroForm.valid">Registrarme</button>
 
+
+<button type="button" (click)="Registrarse()" class="btn btn-primary" [disabled]="!registroForm.valid">Registrarme</button>
 </form>
+
 </div>
 
 </body>
