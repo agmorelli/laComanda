@@ -2,7 +2,12 @@
   <div class="row">
 <div class="tabla-prod col-sm-4">
   <form class="form-group" action="">
-    <input class="form-control" placeholder="mesa" type="text" name="mesa" [(ngModel)]="mesa">
+    <br>
+    <label for="numeroMesa">Numero de mesa</label>
+    <input class="form-control" id="numeroMesa" placeholder="mesa" type="text" name="mesa" [(ngModel)]="mesa">
+    
+    <label for="fotoMesa">Foto mesa</label>
+    <p-fileUpload id="fotoMesa" name="mesa" url="http://localhost:8080/TP_PROG3_1C_2018/backend/Mesas/FotoMesa"></p-fileUpload>
   </form>
   <table class="table">
       <thead>
@@ -42,8 +47,10 @@
       </tfoot>
     </table>
   </div>
+  
   <div class="btn-ingresar ">
   <button class="btn btn-success">Ingresar pedido</button>
+
 </div>
 </div>
   

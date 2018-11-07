@@ -17,11 +17,12 @@ export class PedidoService {
 
   IngresarPedido(pedido: Pedido)
   {
-    datos={
-      
+    let datos={
+      "idMesa":pedido.idMesa,
+
     }
 
-    return this.miHttp.httpPost("Pedidos/",datos)
+    return this.http.httpPost("Pedidos/",datos)
     .then((data)=>{return data})
     .catch((data)=>{return data})
   }

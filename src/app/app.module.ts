@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';   
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +26,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { BotonBorrarComponent } from './componentes/boton-borrar/boton-borrar.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { BotonSuspenderComponent } from './componentes/boton-suspender/boton-suspender.component';
+import { PedidoService } from './servicios/pedido.service';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 
@@ -54,7 +58,9 @@ export function tokenGetter() {
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    AccordionModule,
     HttpModule,
+    FileUploadModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -63,7 +69,14 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [MiHttpService, UsuariosService, ProductosService, AuthService, AuthGuardService, JwtHelperService, RoleGuardService],
+  providers: [MiHttpService, 
+    UsuariosService, 
+    ProductosService, 
+    PedidoService,
+    AuthService, 
+    AuthGuardService, 
+    JwtHelperService, 
+    RoleGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
