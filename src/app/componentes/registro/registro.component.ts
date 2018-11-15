@@ -41,6 +41,10 @@ export class RegistroComponent implements OnInit {
     Validators.required
   ]);
 
+  captcha = new FormControl('', [
+    Validators.required
+  ]);
+
 
 
 
@@ -52,6 +56,7 @@ export class RegistroComponent implements OnInit {
     clave: this.clave,
     copiaClave: this.copiaClave,
     sexo: this.sexo,
+    captcha: this.captcha,
    
 
   });
@@ -63,5 +68,9 @@ export class RegistroComponent implements OnInit {
   {
     console.log("registro");
   }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response +captchaResponse}`);
+}
 
 }

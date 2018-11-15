@@ -29,19 +29,19 @@ export class PrincipalComponent implements OnInit {
       case "admin": this.router.navigate(['admin']);
       break;
 
-      case "cocinero": this.router.navigate(['cocina']);
+      case "cocina": this.router.navigate(['cocina']);
       break;
 
-      case "cocinero": this.router.navigate(['chopera']);
+      case "chopera": this.router.navigate(['chopera']);
       break;
 
-      case "cocinero": this.router.navigate(['tragos']);
+      case "barra": this.router.navigate(['barra']);
       break;
 
-      case "cocinero": this.router.navigate(['candy']);
+      case "candy": this.router.navigate(['candy']);
       break;
 
-      case "cocinero": this.router.navigate(['cliente']);
+      case "cliente": this.router.navigate(['cliente']);
       break;
     }
    }

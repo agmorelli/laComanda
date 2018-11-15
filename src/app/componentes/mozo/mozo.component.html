@@ -4,18 +4,20 @@
   <form class="form-group" action="">
     <br>
     <label for="numeroMesa">Numero de mesa</label>
-    <input class="form-control" id="numeroMesa" placeholder="mesa" type="text" name="mesa" [(ngModel)]="mesa">
+    <input class="form-control" id="numeroMesa" placeholder="mesa" type="text" name="mesa" value="0002" [(ngModel)]="mesa">
     
     <label for="fotoMesa">Foto mesa</label>
-    <p-fileUpload id="fotoMesa" name="mesa" url="http://localhost:8080/TP_PROG3_1C_2018/backend/Mesas/FotoMesa"></p-fileUpload>
+   
+    <p-fileUpload id="fotoMesa" mode="advanced" name="mesa" url="http://localhost:8080/TP_PROG3_1C_2018/backend/Mesas/FotoMesa"></p-fileUpload>
   </form>
+  <input type="text" [(ngModel)]="busqueda" >
   <table class="table">
       <thead>
         <th>Producto</th> <th>Precio</th> <th>Accion</th>
       </thead>
       <tbody *ngIf="listaProductos">
-        <tr *ngFor="let producto of listaProductos">
-            <td>{{producto.nombre}}</td>
+        <tr *ngFor="let producto of (listaProductos | filtro: busqueda)">
+            <td estilo [tipo]="producto.responsable">{{producto.nombre}}</td>
             <td>{{producto.precio}}</td>
             <td><app-boton-agregar [producto]="producto" (enviar)="AgregarAlPedido($event)"></app-boton-agregar></td>
         </tr>
@@ -48,8 +50,28 @@
     </table>
   </div>
   
-  <div class="btn-ingresar ">
-  <button class="btn btn-success">Ingresar pedido</button>
+  <div class="btn-ingresar col-sm-4 ">
+  <button class="btn btn-success col-sm-12" (click)="IngresarPedido()">Ingresar pedido</button>
+  <div class="card-pedido card col-sm-12"> 
+
+    <legend>Numero pedido:</legend>
+    <h3 *ngIf="elPedido.id"> {{elPedido.id}} </h3>
+    <legend>Detalle:</legend>
+    <ul *ngFor="let p of elPedido.detalle">
+      <li>{{p.nombre}}</li>
+    </ul>
+    <legend>Total:</legend>
+    <h4 *ngIf="elPedido.id"> {{totalPedido}} </h4>
+    <div><app-csv *ngIf="elPedido.id" [pedido]="elPedido"></app-csv></div>
+    
+    
+  </div>
+  
+
+ 
+
+ 
+  
 
 </div>
 </div>

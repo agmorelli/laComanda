@@ -14,11 +14,15 @@ import {
 } from './servicios/auth/role-guard-service.service';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { BarraComponent } from './componentes/barra/barra.component';
+import { ChoperaComponent } from './componentes/chopera/chopera.component';
+import { CandyComponent } from './componentes/candy/candy.component';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
 
 
 const routes: Routes = [
  {path:"registro", component: RegistroComponent},
-{path:"", component:PrincipalComponent, canActivate:[AuthGuard], children:[
+ {path:"", component:PrincipalComponent, canActivate:[AuthGuard], children:[
 
   {path:"admin", component: AdminComponent, canActivate:[RoleGuard],
   data: { 
@@ -26,6 +30,14 @@ const routes: Routes = [
   } },
 
   {path:"cocina", component: CocinaComponent},
+
+  {path:"barra", component: BarraComponent},
+
+  {path:"chopera", component: ChoperaComponent},
+
+  {path:"candy", component: CandyComponent},
+
+  {path:"cliente", component: ClienteComponent},
 
   {path:"mozo", component: MozoComponent, canActivate:[RoleGuard],
   data: { 

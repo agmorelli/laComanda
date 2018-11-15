@@ -29,7 +29,9 @@ pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  >
 <input  value="Mujer"  type="radio" id="sexom"   name="sexo"  [formControl]="sexo" required > <label class="lbl-sexo" for="Sexom">Mujer</label>
 
 </div>
-<div><div class="g-recaptcha" data-sitekey="6Lfzd3gUAAAAADY5QgRosNzEZmOzBXpqynwKISd9" required></div></div>
+
+    <re-captcha [formControl]="captcha" (resolved)="resolved($event)" siteKey="6Lfzd3gUAAAAADY5QgRosNzEZmOzBXpqynwKISd9"></re-captcha>
+  
 
 
 

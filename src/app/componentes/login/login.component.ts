@@ -81,6 +81,18 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['registro']);
   }
 
+  IngresoRapido(usr:string){
+    this.email.setValue(usr+"@gmail.com");
+    if(usr=="admin")
+    {
+      this.clave.setValue("admin");
+    }
+    else{
+      this.clave.setValue("1234");
+    }
+    this.Ingresar();
+  }
+
 
 
 

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Pacifico');
+
+h3{
+    font-family: 'Lobster';
+    color: white;
+    font-style: oblique;
+}
+
+.form-control{
+    background-color: rgba(4, 4, 29, 0.637);
+    color: beige;
+}
+
+.container{
+    background-color: rgba(0, 0, 0, 0.658);
+    
+}
+table{
+    float: right;
+}
+

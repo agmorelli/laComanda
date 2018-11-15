@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosService {
-token=localStorage.getItem("token");
+
   constructor(private miHttp: MiHttpService) { }
 /*
   TraerUsuarios(){
@@ -78,7 +78,7 @@ public CargarUsuario(usuario, clave, sexo, perfil?)
       "clave":clave,
       "sexo": sexo,
       "perfil":perfil,
-      "token": token
+      "token": localStorage.getItem('token')
     }
 
   }
@@ -89,7 +89,7 @@ public CargarUsuario(usuario, clave, sexo, perfil?)
       "clave":clave,
       "sexo": sexo,
       "perfil": "Cliente",
-      "token": token
+      "token": localStorage.getItem('token')
     }
   }
   console.log(datos);

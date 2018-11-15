@@ -7,3 +7,8 @@
 .todo{
     display: block;
 }
+
+.card-pedido{
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+}

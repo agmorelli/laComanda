@@ -2,18 +2,26 @@
 <div class="row">
 <div class="form-ingreso col-sm-3">
     <h3>Nuevo empleado</h3>
-  <form action="">
+  <form [formGroup]="registroForm" >
     <div class="form-group">
-      <input type="text" class="form-control input-ingreso" name="usuario" placeholder="Usuario" [(ngModel)]="usuario" ><br>
-      <input type="text" class="form-control input-ingreso" name="clave" placeholder="Clave" [(ngModel)]="clave" ><br>
-      <input type="text" class="form-control input-ingreso" name="perfil" placeholder="Perfil" [(ngModel)]="perfil" ><br>
+      <input class="form-control input-ingreso" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
+      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ><br>
+
+      <input class="form-control input-ingreso" placeholder="Clave" type="password"  name="clave"  [formControl]="clave" required><br>
+
+      <input type="text" class="form-control input-ingreso" placeholder="Perfil"  name="perfil"  [formControl]="perfil" required><br>
+
       <div class="form-group">
         <legend>Sexo</legend>
-          <input type="radio" name="sexo" id="sexoH" value="Hombre" [(ngModel)]="sexo"><label for="sexoH">Hombre</label><br>
-          <input type="radio" name="seco" id="sexoM" value="Mujer" [(ngModel)]="sexo"><label for="sexoM">Mujer</label>
-      </div>
+        <input  value="Hombre"  type="radio" id="sexoh"  name="sexo"  [formControl]="sexo" required > <label class="lbl-sexo" for="Sexoh">Hombre</label><br>
+        <input  value="Mujer"  type="radio" id="sexom"   name="sexo"  [formControl]="sexo" required > <label class="lbl-sexo" for="Sexom">Mujer</label>
+        </div>
+      
+      <app-mi-captcha (lanzador)="RecibirCaptcha($event)"></app-mi-captcha> 
+      <p-messages [(value)]="msgs"></p-messages>
+       
 
-      <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12">Ingresar</button>
+      <button (click)="IngresarUsuario()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Ingresar</button>
     </div>
 
   </form>
