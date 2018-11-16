@@ -66,6 +66,31 @@ public CerrarSesion()
 
 }
 
+public BorrarUsuario(id)
+{ 
+   let datos = {
+     "token": localStorage.getItem('token'),
+     "id": id
+   }
+   return this.miHttp.httpPost("Usuarios/Borrar",datos)
+   .then((data)=>{return data})
+   .catch((data)=>{return data})
+
+}
+
+public SuspenderUsuario(id, estado)
+{ 
+   let datos = {
+     "token": localStorage.getItem('token'),
+     "id":id,
+     "estado": estado
+   }
+   return this.miHttp.httpPost("Usuarios/Suspender",datos)
+   .then((data)=>{return data})
+   .catch((data)=>{return data})
+
+}
+
 public CargarUsuario(usuario, clave, sexo, perfil?)
 { 
 

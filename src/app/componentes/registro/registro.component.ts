@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UsuariosService } from '../../servicios/usuarios.service';
+import { ThrowStmt } from '@angular/compiler';
 
 
 function copiaClave(input: FormControl) {
@@ -66,7 +67,16 @@ export class RegistroComponent implements OnInit {
 
   Registrarse()
   {
-    console.log("registro");
+ 
+    let usuario= this.registroForm.get('email').value;
+    let clave= this.registroForm.get('clave').value;
+    let sexo= this.registroForm.get('sexo').value;
+
+     this.usrService.CargarUsuario(usuario, clave, sexo).then((data)=>{
+ 
+     }).catch((data)=>{
+      console.log(data);
+    });
   }
 
   resolved(captchaResponse: string) {

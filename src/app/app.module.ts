@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
@@ -58,7 +59,11 @@ import {ToastModule} from 'primeng/toast';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {GrowlModule} from 'primeng/growl';
-
+import { MesasComponent } from './componentes/mesas/mesas.component';
+import { MesasService } from './servicios/mesas.service';
+import {DialogModule} from 'primeng/dialog';
+import {RatingModule} from 'primeng/rating';
+import { BtnBorrarUsuarioComponent } from './componentes/btn-borrar-usuario/btn-borrar-usuario.component';
 
 
 
@@ -101,10 +106,13 @@ export function tokenGetter() {
     BotonServirComponent,
     EstadoPedidoDirective,
     CronometroComponent,
-    ColorTimerDirective
+    ColorTimerDirective,
+    MesasComponent,
+    BtnBorrarUsuarioComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
@@ -119,7 +127,9 @@ export function tokenGetter() {
     ToastModule,
     MessagesModule,
     MessageModule,
+    DialogModule,
     GrowlModule,
+    RatingModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -136,6 +146,7 @@ export function tokenGetter() {
     AuthGuardService, 
     JwtHelperService, 
     MessageService,
+    MesasService,
     RoleGuardService],
   bootstrap: [AppComponent]
 })

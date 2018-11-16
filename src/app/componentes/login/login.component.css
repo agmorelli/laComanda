@@ -11,6 +11,7 @@ body{
     background-image: url("../../../assets/imagenes/bar-1869656_1280.jpg");
     background-position: center center;
     background-repeat: no-repeat;
+    background-color: rgba(81, 226, 81, 0.534);
 
 /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
 

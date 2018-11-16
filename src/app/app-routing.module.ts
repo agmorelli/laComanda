@@ -18,6 +18,8 @@ import { BarraComponent } from './componentes/barra/barra.component';
 import { ChoperaComponent } from './componentes/chopera/chopera.component';
 import { CandyComponent } from './componentes/candy/candy.component';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
+import { MesasComponent } from './componentes/mesas/mesas.component';
+import { EstadisticasComponent } from './componentes/estadisticas/estadisticas.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,11 @@ const routes: Routes = [
  {path:"", component:PrincipalComponent, canActivate:[AuthGuard], children:[
 
   {path:"admin", component: AdminComponent, canActivate:[RoleGuard],
+  data: { 
+    expectedRole: 'admin'
+  } },
+  
+  {path:"estadisticas", component: EstadisticasComponent, canActivate:[RoleGuard],
   data: { 
     expectedRole: 'admin'
   } },
@@ -38,6 +45,8 @@ const routes: Routes = [
   {path:"candy", component: CandyComponent},
 
   {path:"cliente", component: ClienteComponent},
+
+  {path:"mesas", component: MesasComponent},
 
   {path:"mozo", component: MozoComponent, canActivate:[RoleGuard],
   data: { 

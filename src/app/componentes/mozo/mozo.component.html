@@ -4,21 +4,22 @@
   <form class="form-group" action="">
     <br>
     <label for="numeroMesa">Numero de mesa</label>
-    <input class="form-control" id="numeroMesa" placeholder="mesa" type="text" name="mesa" value="0002" [(ngModel)]="mesa">
+    <input class="form-control miInput" id="numeroMesa" placeholder="mesa" type="text" name="mesa" value="0002" [(ngModel)]="mesa">
     
     <label for="fotoMesa">Foto mesa</label>
    
     <p-fileUpload id="fotoMesa" mode="advanced" name="mesa" url="http://localhost:8080/TP_PROG3_1C_2018/backend/Mesas/FotoMesa"></p-fileUpload>
   </form>
-  <input type="text" [(ngModel)]="busqueda" >
-  <table class="table">
+  <input type="text" placeholder="Busqueda" class="form-control miInput" [(ngModel)]="busqueda" >
+  <br>
+  <table class="table table-hover ">
       <thead>
         <th>Producto</th> <th>Precio</th> <th>Accion</th>
       </thead>
       <tbody *ngIf="listaProductos">
         <tr *ngFor="let producto of (listaProductos | filtro: busqueda)">
             <td estilo [tipo]="producto.responsable">{{producto.nombre}}</td>
-            <td>{{producto.precio}}</td>
+            <td>{{producto.precio | currency: '$ ': true: '1.1-2'}}</td>
             <td><app-boton-agregar [producto]="producto" (enviar)="AgregarAlPedido($event)"></app-boton-agregar></td>
         </tr>
       </tbody>
@@ -40,12 +41,12 @@
         <tr *ngFor="let producto of productosPedido">
           
             <td>{{producto.nombre}}</td>
-            <td>{{producto.precio}}</td>
+            <td>{{producto.precio | currency: '$ ': true: '1.1-2'}}</td>
             <td> <app-boton-borrar [objeto]="producto" (enviarABorrar)="QuitarAlPedido($event)" ></app-boton-borrar> </td>
         </tr>
       </tbody>
       <tfoot>
-        <td>Total</td> <td>{{totalPedido}} </td>
+        <td>Total</td> <td>{{totalPedido | currency: '$ ': true: '1.1-2'}} </td>
       </tfoot>
     </table>
   </div>
@@ -61,7 +62,7 @@
       <li>{{p.nombre}}</li>
     </ul>
     <legend>Total:</legend>
-    <h4 *ngIf="elPedido.id"> {{totalPedido}} </h4>
+    <h4 *ngIf="elPedido.id"> {{totalPedido | currency: '$ ': true: '1.1-2'}} </h4>
     <div><app-csv *ngIf="elPedido.id" [pedido]="elPedido"></app-csv></div>
     
     

@@ -22,6 +22,7 @@ export class BotonBorrarComponent implements OnInit {
     
   }
 
+
   ngOnInit() {
   }
 

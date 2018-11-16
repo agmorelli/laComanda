@@ -11,6 +11,10 @@ export class ClienteComponent implements OnInit {
   detalles:any;
   idMesa;
   idPedido;
+valMozo:number;
+valCocinero:number;
+valMesa:number;
+valRest:number;
 
   constructor(private httpPedido: PedidoService) { }
 
@@ -25,6 +29,12 @@ export class ClienteComponent implements OnInit {
 
     })
   }
+  Presionar()
+  {
+    console.log(this.valCocinero, this.valMesa, this.valMozo, this.valRest);
+  }
+
+  
   
 
   ngOnInit() {

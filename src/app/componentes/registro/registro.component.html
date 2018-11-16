@@ -6,8 +6,8 @@
 
 <h1>Registro de usuario</h1>
 
-<!--<form [formGroup]="registroForm" (ngSubmit)="Registrarse()">-->
-    <form [formGroup]="registroForm" >
+<form [formGroup]="registroForm" (ngSubmit)="Registrarse()">
+  
   <div class="form-group">
   
 <input class="form-control" placeholder="Email" type="email" id="email"  name="email" [formControl]="email" required
@@ -35,7 +35,7 @@ pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  >
 
 
 
-<button type="button" (click)="Registrarse()" class="btn btn-primary" [disabled]="!registroForm.valid">Registrarme</button>
+<button type="submit" (click)="Registrarse()" class="btn btn-primary" [disabled]="!registroForm.valid">Registrarme</button>
 </form>
 
 </div>

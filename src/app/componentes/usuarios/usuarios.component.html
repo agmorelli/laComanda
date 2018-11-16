@@ -44,8 +44,8 @@
             <td>{{usuario.usuario}}</td>
             <td>{{usuario.perfil}}</td>
             <td>{{usuario.estado}}</td>
-            <td><boton-suspender [id]="usuario.id"></boton-suspender></td>
-            <td> <app-boton-borrar [objeto]="usuario" (enviarABorrar)="QuitarUsuario($event)" ></app-boton-borrar> </td>
+            <td><boton-suspender [id]="usuario.id" [estado]="usuario.estado" (lanzador)="TraerTodosLosUsuarios($event)"></boton-suspender></td>
+            <td> <app-btn-borrar-usuario [id]="usuario.id" (lanzador)="TraerTodosLosUsuarios($event)" ></app-btn-borrar-usuario> </td>
             
         </tr>
       </tbody>
