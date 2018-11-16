@@ -1,27 +1,25 @@
 # LaComanda
+TP de LAB 4 por Augusto Morelli 4°B T. Noche.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Funcionalidad de la aplicación
 
-## Code scaffolding
+La comanda es una aplicación de gestión de pedidos para restaurant.
+Permite tomar pedidos y distribuirlos a las distintas áreas de la cadena. Así mismo el cliente puede ingresar con su cuenta de usuario y consultar el tiempo restante para que su pedido sea entregado.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Acceso rápido
 
-## Build
+La aplicación cuenta don botones de acceso rápido en el Login que permiten testear el funcionamiento de la misma.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Perfiles
 
-## Running unit tests
+###admin: El administrados es quien tiene la facultad de gestionar los distintos usuario tanto como cobrar y cerrar las mesas y acceder a las estadísticas de la aplicación. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###mozo: El mozo es quien recibe y entrega los pedidos en las mesas y los ingresa al sistema. 
 
-## Running end-to-end tests
+###cocina, barra, candy y chopera: Estos perfiles reciben en sus distintas listas de pendientes los pedidos, ingresan el tiempo de preparación del mismo y lo ponen a disposición del mozo para que sean entregados.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+###cliente: El cliente debe darse de alta en el registro principal para poder donde para poder acceder a la consulta del tiempo de espera. También puede completar una encuesta donde puntuará los distintos empleados que participaron de su atención y dejara una breve reseña de su experiencia.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
